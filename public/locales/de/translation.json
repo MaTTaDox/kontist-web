@@ -12,6 +12,8 @@
 		"dismiss": "Schließen",
 		"email": "E-Mail",
 		"password": "Passwort",
-		"loginTitle": "Login"
+		"loginTitle": "Login",
+		"balance": "Kontostand",
+		"purpose": "Verwendungszweck"
 	}
 }
