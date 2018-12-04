@@ -14,6 +14,7 @@ import './core/fontAwesome';
 
 import './style/core.css'
 import Login from "./components/App/Login";
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 window.store = store;
 
@@ -29,6 +30,7 @@ ReactDOM.render(
     <I18nextProvider i18n={i18n}>
         <Provider store={store}>
             <MuiThemeProvider theme={theme}>
+                <CssBaseline />
                 <ConnectedRouter history={history}>
                     <Switch>
                         <Route exact path='/login' component={Login}/>

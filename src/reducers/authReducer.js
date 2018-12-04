@@ -1,5 +1,5 @@
 import {
-    LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS
+    LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS, LOGIN_RESET
 } from '../actions/sessionActions'
 
 function authReducer(state = {
@@ -23,7 +23,12 @@ function authReducer(state = {
             return Object.assign({}, state, {
                 isFetching: false,
                 isAuthenticated: false,
-                errorMessage: action.error
+                errorMessage: action.message
+            });
+
+        case LOGIN_RESET:
+            return Object.assign({}, state, {
+                errorMessage: ''
             });
         case LOGOUT_SUCCESS:
             return Object.assign({}, state, {

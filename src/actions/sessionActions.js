@@ -1,6 +1,7 @@
 import {push} from 'connected-react-router';
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_RESET = 'LOGIN_RESET';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
@@ -30,11 +31,11 @@ function loginError(message) {
         type: LOGIN_FAILURE,
         isFetching: false,
         isAuthenticated: false,
-        message
+        message: message
     }
 }
 
-export function loginUser(creds, redirect ='/') {
+export function loginUser(creds, redirect = '/') {
 
     let config = {
         method: 'POST',
@@ -52,31 +53,36 @@ export function loginUser(creds, redirect ='/') {
 
         return fetch('api/user/auth-token', config)
             .then(response => {
-                   return  response.json().then(user => ({user, response}))
+                    return response.json().then(user => ({user, response}))
                 }
-            ).then(({ user, response }) =>  {
+            ).then(({user, response}) => {
                 if (!response.ok) {
                     dispatch(loginError(user.title));
                 } else {
 
-                    localStorage.setItem('token',user.token);
+                    localStorage.setItem('token', user.token);
                     // Dispatch the success action
                     dispatch(receiveLogin(user));
-                    if(!redirect)
-                    {
+                    if (!redirect) {
                         redirect = '/';
                     }
 
                     dispatch({
                         type: 'REMOVE_ALL_ALERT',
                     });
-                    
+
                     dispatch(push(redirect))
                 }
             }).catch(err => {
                 dispatch(loginError(err.message))
             });
     }
+}
+
+export function resetLogin() {
+    return dispatch => dispatch({
+        type: LOGIN_RESET
+    });
 }
 
 function requestLogout() {
