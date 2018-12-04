@@ -29,3 +29,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.account-group {
+    margin-bottom: 1em;
+}

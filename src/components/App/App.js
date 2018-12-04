@@ -7,8 +7,9 @@ import Navigation from "../Navigation/Navigation";
 import {fetchUser} from "../../actions/userActions";
 import {Route, Switch} from 'react-router';
 import NoMatch from "../NoMatch/NoMatch";
-import Account from "../Account/Account";
+import Overview from "../Overview/Overview";
 import {translate} from "react-i18next";
+import Account from "../Account/Account";
 
 class App extends Component {
 
@@ -33,8 +34,8 @@ class App extends Component {
                 <Grid container spacing={16}>
                     <Grid item xs={12}>
                         <Switch>
-                            <Route path={match.url + 'account'} component={NoMatch}/>
-                            <Route path={match.url} exact component={Account}/>
+                            <Route path={match.url + 'account'} component={Account}/>
+                            <Route path={match.url} exact component={Overview}/>
                             <Route component={NoMatch}/>
                         </Switch>
                     </Grid>

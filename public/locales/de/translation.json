@@ -5,6 +5,7 @@
 		"name": "Name",
 		"overview": "Übersicht",
 		"account": "Konto",
+		"accounts": "Konten",
 		"logout": "Ausloggen",
 		"login": "Einloggen",
 		"date": "Datum",
@@ -14,6 +15,11 @@
 		"password": "Passwort",
 		"loginTitle": "Login",
 		"balance": "Kontostand",
-		"purpose": "Verwendungszweck"
+		"purpose": "Verwendungszweck",
+		"userAccount": "Benutzerkonto",
+		"cards": "Karten",
+		"bankData": "Bankdaten",
+		"companyType": "Unternehmensart",
+		"economicSector": "Unternehmenszweck"
 	}
 }
