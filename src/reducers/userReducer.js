@@ -1,24 +1,24 @@
 import {
-    LIST_TRANSACTIONS_SUCCESS, LIST_TRANSACTIONS_FAILURE, LIST_TRANSACTIONS_REQUEST
-} from '../actions/transactionActions'
+    USER_SUCCESS, USER_REQUEST, USER_FAILURE
+} from '../actions/userActions'
 
-export function transactionReducer(state = {
+export function userReducer(state = {
     isFetching: false,
 }, action) {
     switch (action.type) {
-        case LIST_TRANSACTIONS_REQUEST:
+        case USER_REQUEST:
             return Object.assign({}, state, {
                 isFetching: true
             });
-        case LIST_TRANSACTIONS_FAILURE:
+        case USER_FAILURE:
             return Object.assign({}, state, {
                 error: action.error,
                 isFetching: false,
             });
-        case LIST_TRANSACTIONS_SUCCESS:
+        case USER_SUCCESS:
             return Object.assign({}, state, {
                 isFetching: false,
-                transactions: action.response
+                user: action.response
             });
         default:
             return state

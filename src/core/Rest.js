@@ -21,13 +21,15 @@ export default class Rest {
             dispatch(push('/login'));
         }
 
-        config.headers = header;
+
+        header['Accept'] = 'application/vnd.kontist.transactionlist.v2+json';
 
         if (typeof body !== 'undefined') {
             config.body = JSON.stringify(body);
             header['Content-Type'] = 'application/json';
-            header['Accept'] = 'application/vnd.kontist.transactionlist.v2+json';
         }
+
+        config.headers = header;
 
         let params = '';
         if (Object.keys(parameter).length) {

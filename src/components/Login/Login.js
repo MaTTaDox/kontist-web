@@ -1,10 +1,10 @@
 import React, {Component,} from 'react';
 import {connect} from "react-redux";
 import {Grid, Card, CardContent, Button, CardActions, TextField, CardHeader, Typography} from '@material-ui/core';
-import {bindActionCreators} from "redux";
+import {bindActionCreators, compose} from "redux";
 import {loginUser, resetLogin} from "../../actions/sessionActions";
-
 import background from '../../images/banking.jpg';
+import {translate} from "react-i18next";
 
 class Login extends Component {
 
@@ -56,7 +56,7 @@ class Login extends Component {
                 </CardContent>
                 <CardActions>
                     <Button size='small' onClick={this.dismissMessage}>
-                        Dismiss
+                        {this.props.t('app.dismiss')}
                     </Button>
                 </CardActions>
             </Card>
@@ -67,7 +67,7 @@ class Login extends Component {
                 <Grid item xs={3}>
                     <form onSubmit={this.loginUser}>
                         <Card>
-                            <CardHeader title='Login'/>
+                            <CardHeader title={this.props.t('app.loginTitle')}/>
                             <CardContent>
                                 {message}
                                 <TextField
@@ -75,12 +75,12 @@ class Login extends Component {
                                     fullWidth={true}
                                     name='email'
                                     onChange={this.onTextChange}
-                                    label="Email"
+                                    label={this.props.t('app.email')}
                                 />
                                 <TextField
                                     margin="normal"
                                     fullWidth={true}
-                                    label="Password"
+                                    label={this.props.t('app.password')}
                                     type="password"
                                     name='password'
                                     onChange={this.onTextChange}
@@ -89,7 +89,7 @@ class Login extends Component {
                             <CardActions>
                                 <Button type='submit' variant="contained" color="primary" size='large' fullWidth={true}
                                         onClick={this.loginUser} disabled={this.props.auth.isFetching}>
-                                    Login
+                                    {this.props.t('app.login')}
                                 </Button>
                             </CardActions>
                         </Card>
@@ -114,4 +114,6 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default compose(
+    translate(),
+    connect(mapStateToProps, mapDispatchToProps))(Login);

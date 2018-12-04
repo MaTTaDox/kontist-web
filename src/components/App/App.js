@@ -1,35 +1,42 @@
 import React, {Component, Fragment,} from 'react';
 import {connect} from "react-redux";
-import {Grid, AppBar, IconButton, Button, Typography, Toolbar} from '@material-ui/core';
+import {Grid, CircularProgress} from '@material-ui/core';
 import {logoutUser} from "../../actions/sessionActions";
-import {bindActionCreators} from "redux";
+import {bindActionCreators, compose} from "redux";
+import Navigation from "../Navigation/Navigation";
+import {fetchUser} from "../../actions/userActions";
+import {Route, Switch} from 'react-router';
+import NoMatch from "../NoMatch/NoMatch";
+import Account from "../Account/Account";
+import {translate} from "react-i18next";
 
 class App extends Component {
 
+    componentDidMount() {
+        this.props.actions.fetchUser();
+    }
+
     render() {
 
+        const match = this.props.match;
+
+        const user = this.props.user;
+        if (!user.user || user.isFetching) {
+            return <div className='container center' style={{paddingTop: 150}}>
+                <CircularProgress size={200}/>
+            </div>
+        }
+
         return <Fragment>
-            <AppBar position="static" color='default' style={{marginBottom: 20}}>
-                <Toolbar>
-                    <Typography variant="h6" color="inherit" style={{
-                        flexGrow: 1,
-                    }}>
-                        Kontist
-                    </Typography>
-                    <Button color="inherit" onClick={() => this.props.actions.logoutUser()}>Logout</Button>
-                </Toolbar>
-            </AppBar>
+            <Navigation/>
             <div className='container'>
                 <Grid container spacing={16}>
-                    <Grid item xs={6}>
-                        <Button variant="contained" color="primary">
-                            Hello World
-                        </Button>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Button variant="contained" color="primary">
-                            Hello World
-                        </Button>
+                    <Grid item xs={12}>
+                        <Switch>
+                            <Route path={match.url + 'account'} component={NoMatch}/>
+                            <Route path={match.url} exact component={Account}/>
+                            <Route component={NoMatch}/>
+                        </Switch>
                     </Grid>
                 </Grid>
             </div>
@@ -39,16 +46,18 @@ class App extends Component {
 
 function mapStateToProps(state) {
 
-    const {transactions} = state;
+    const {user} = state;
 
-    return {transactions}
+    return {user}
 }
 
 const mapDispatchToProps = (dispatch) => {
 
     return {
-        actions: bindActionCreators({logoutUser}, dispatch),
+        actions: bindActionCreators({logoutUser, fetchUser}, dispatch),
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default compose(
+    translate(),
+    connect(mapStateToProps, mapDispatchToProps))(App);

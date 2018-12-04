@@ -18,6 +18,10 @@ body {
     background-color: #B00020 !important;
 }
 
+.center {
+    text-align: center;
+}
+
 .login {
     height: 100%;
     padding-top: 200px;

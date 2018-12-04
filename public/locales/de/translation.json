@@ -1,5 +1,17 @@
 {
 	"app": {
-		"title": "Kontist Webinterface"
+		"title": "Kontist Webinterface",
+		"amount": "Betrag",
+		"name": "Name",
+		"overview": "Übersicht",
+		"account": "Konto",
+		"logout": "Ausloggen",
+		"login": "Einloggen",
+		"date": "Datum",
+		"bankaccount": "Bankkonto",
+		"dismiss": "Schließen",
+		"email": "E-Mail",
+		"password": "Passwort",
+		"loginTitle": "Login"
 	}
 }

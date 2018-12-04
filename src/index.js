@@ -13,7 +13,7 @@ import {store, history} from './core';
 import './core/fontAwesome';
 
 import './style/core.css'
-import Login from "./components/App/Login";
+import Login from "./components/Login/Login";
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 window.store = store;
