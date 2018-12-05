@@ -24,6 +24,7 @@ import BankIcon from '@material-ui/icons/AccountBalance';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import {withStyles} from '@material-ui/core/styles';
 import {translate} from "react-i18next";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const drawerWidth = 240;
 
@@ -108,6 +109,13 @@ class Navigation extends Component {
                         <ListItem button key='account' component={Link} to="/account">
                             <ListItemIcon><AccountCircle/></ListItemIcon>
                             <ListItemText primary={this.props.t('app.account')}/>
+                        </ListItem>
+                    </List>
+                    <Divider/>
+                    <List onClick={() => this.toggleDrawer(false)}>
+                        <ListItem button key='github' target='_blank' component={'a'} href="http://github.com/mattadox/kontist-web">
+                            <ListItemIcon><FontAwesomeIcon  icon={['fab', 'github']} /></ListItemIcon>
+                            <ListItemText primary={this.props.t('app.github')}/>
                         </ListItem>
                     </List>
                 </Drawer>

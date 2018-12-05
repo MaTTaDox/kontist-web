@@ -20,6 +20,8 @@
 		"cards": "Karten",
 		"bankData": "Bankdaten",
 		"companyType": "Unternehmensart",
-		"economicSector": "Unternehmenszweck"
+		"economicSector": "Unternehmenszweck",
+		"github": "GitHub",
+		"loginMessage": "Webinterface für {{link}}"
 	}
 }

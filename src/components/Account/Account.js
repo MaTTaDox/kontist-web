@@ -1,4 +1,4 @@
-import React, {Component, Fragment,} from 'react';
+import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {Grid, CardContent, CardHeader, Card, Typography} from '@material-ui/core';
 import {logoutUser} from "../../actions/sessionActions";

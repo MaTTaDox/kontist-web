@@ -1,6 +1,6 @@
 import React, {Component,} from 'react';
 import {connect} from "react-redux";
-import {Grid, Card, CardContent, Button, CardActions, TextField, CardHeader, Typography} from '@material-ui/core';
+import {Grid, Card, CardContent, Button, CardActions, TextField, CardHeader, Typography, Divider} from '@material-ui/core';
 import {bindActionCreators, compose} from "redux";
 import {loginUser, resetLogin} from "../../actions/sessionActions";
 import background from '../../images/banking.jpg';
@@ -85,13 +85,15 @@ class Login extends Component {
                                     name='password'
                                     onChange={this.onTextChange}
                                 />
-                            </CardContent>
-                            <CardActions>
                                 <Button type='submit' variant="contained" color="primary" size='large' fullWidth={true}
                                         onClick={this.loginUser} disabled={this.props.auth.isFetching}>
                                     {this.props.t('app.login')}
                                 </Button>
-                            </CardActions>
+                                <Divider style={{margin: '20px 0'}} />
+                                <Typography variant='subtitle1' align='center' color='textSecondary' >
+                                    {this.props.t('app.loginMessage',{link: 'Kontist'})}
+                                </Typography>
+                            </CardContent>
                         </Card>
                     </form>
                 </Grid>
