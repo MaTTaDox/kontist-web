@@ -33,3 +33,11 @@ body {
 .account-group {
     margin-bottom: 1em;
 }
+
+.link {
+    color: white
+}
+
+.link:hover {
+    color: #BFBFBF
+}

@@ -22,6 +22,7 @@
 		"companyType": "Unternehmensart",
 		"economicSector": "Unternehmenszweck",
 		"github": "GitHub",
-		"loginMessage": "Webinterface für {{link}}"
+		"twitter": "Twitter",
+		"loginMessage": "Webinterface für <1>Kontist</1>"
 	}
 }

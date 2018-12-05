@@ -4,7 +4,8 @@ import {Grid, Card, CardContent, Button, CardActions, TextField, CardHeader, Typ
 import {bindActionCreators, compose} from "redux";
 import {loginUser, resetLogin} from "../../actions/sessionActions";
 import background from '../../images/banking.jpg';
-import {translate} from "react-i18next";
+import {translate, Trans} from "react-i18next";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 class Login extends Component {
 
@@ -62,12 +63,12 @@ class Login extends Component {
             </Card>
         }
 
-        return <div className='container login' style={{backgroundImage: `url(${background})`}} >
+        return <div className='container login' style={{backgroundImage: `url(${background})`}}>
             <Grid container spacing={16} justify="center">
                 <Grid item xs={5}>
                     <form onSubmit={this.loginUser}>
                         <Card>
-                            <CardHeader title={this.props.t('app.loginTitle')}/>
+                            <CardHeader title={this.props.t('app.title')}/>
                             <CardContent>
                                 {message}
                                 <TextField
@@ -89,10 +90,20 @@ class Login extends Component {
                                         onClick={this.loginUser} disabled={this.props.auth.isFetching}>
                                     {this.props.t('app.login')}
                                 </Button>
-                                <Divider style={{margin: '20px 0'}} />
-                                <Typography variant='subtitle1' align='center' color='textSecondary' >
-                                    {this.props.t('app.loginMessage',{link: 'Kontist'})}
+                                <Divider style={{margin: '20px 0'}}/>
+                                <Typography variant='subtitle1' align='center' color='textSecondary'>
+                                    <Trans i18nKey={'app.loginMessage'}>
+                                        Webinterface für <a className='link' href='https://kontist.com' target='_blank'>Kontist</a>
+                                    </Trans>
                                 </Typography>
+                                <div className='center'>
+                                    <Button component='a'  href='https://github.com/mattadox/kontist-web' target='_blank'>
+                                        <FontAwesomeIcon icon={['fab', 'github']}/>&nbsp;{this.props.t('app.github')}
+                                    </Button>
+                                    <Button component='a'  href='https://twitter.com/mattadoxx' target='_blank'>
+                                        <FontAwesomeIcon icon={['fab', 'twitter']}/>&nbsp;{this.props.t('app.twitter')}
+                                    </Button>
+                                </div>
                             </CardContent>
                         </Card>
                     </form>
