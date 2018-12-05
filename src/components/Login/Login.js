@@ -64,7 +64,7 @@ class Login extends Component {
 
         return <div className='container login' style={{backgroundImage: `url(${background})`}} >
             <Grid container spacing={16} justify="center">
-                <Grid item xs={3}>
+                <Grid item xs={5}>
                     <form onSubmit={this.loginUser}>
                         <Card>
                             <CardHeader title={this.props.t('app.loginTitle')}/>
