@@ -75,12 +75,14 @@ class Login extends Component {
                                     margin="normal"
                                     fullWidth={true}
                                     name='email'
+                                    value={this.state.email}
                                     onChange={this.onTextChange}
                                     label={this.props.t('app.email')}
                                 />
                                 <TextField
                                     margin="normal"
                                     fullWidth={true}
+                                    value={this.state.password}
                                     label={this.props.t('app.password')}
                                     type="password"
                                     name='password'

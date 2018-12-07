@@ -19,6 +19,7 @@ import {
 import {logoutUser} from "../../actions/sessionActions";
 import {bindActionCreators} from "redux";
 import MenuIcon from '@material-ui/icons/Menu';
+import CompareArrows from '@material-ui/icons/CompareArrows';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import BankIcon from '@material-ui/icons/AccountBalance';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -109,6 +110,10 @@ class Navigation extends Component {
                         <ListItem button key='account' component={Link} to="/account">
                             <ListItemIcon><AccountCircle/></ListItemIcon>
                             <ListItemText primary={this.props.t('app.account')}/>
+                        </ListItem>
+                        <ListItem button key='transfer' component={Link} to="/transfer">
+                            <ListItemIcon><CompareArrows/></ListItemIcon>
+                            <ListItemText primary={this.props.t('app.transfer')}/>
                         </ListItem>
                     </List>
                     <Divider/>

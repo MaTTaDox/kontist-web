@@ -23,6 +23,17 @@
 		"economicSector": "Unternehmenszweck",
 		"github": "GitHub",
 		"twitter": "Twitter",
-		"loginMessage": "Webinterface für <1>Kontist</1>"
+		"loginMessage": "Webinterface für <1>Kontist</1>",
+		"transfer": "Überweisung",
+		"recipient": "Empfänger",
+		"iban": "IBAN",
+		"confirm": "Bestätigen",
+		"data": "Daten",
+		"send": "Absenden",
+		"code": "Code",
+		"reset": "Reset",
+		"note": "Verwendungszweck",
+		"transferSuccess": "Überweisung erfolgreich",
+		"newTransfer": "Neue Überweisung"
 	}
 }
