@@ -10,6 +10,7 @@ import NoMatch from "../NoMatch/NoMatch";
 import Overview from "../Overview/Overview";
 import {translate} from "react-i18next";
 import Account from "../Account/Account";
+import Transfer from "../Transfer/Transfer";
 
 class App extends Component {
 
@@ -35,6 +36,7 @@ class App extends Component {
                     <Grid item xs={12}>
                         <Switch>
                             <Route path={match.url + 'account'} component={Account}/>
+                            <Route path={match.url + 'transfer'} component={Transfer}/>
                             <Route path={match.url} exact component={Overview}/>
                             <Route component={NoMatch}/>
                         </Switch>
