@@ -144,6 +144,7 @@ class Transfer extends Component {
         const classes = this.props.classes;
 
         switch (this.state.activeStep) {
+            default:
             case 0:
                 const transferLoading = this.props.initTransfer.isFetching;
 
@@ -231,7 +232,7 @@ class Transfer extends Component {
                                     color="primary" size='large'>
                                 {this.props.t('app.confirm')}
                             </Button>
-                            {transferLoading && <CircularProgress size={24} className={classes.buttonProgress}/>}
+                            {confirmLoading && <CircularProgress size={24} className={classes.buttonProgress}/>}
                         </div>
                     </CardActions>
                 </Card>;

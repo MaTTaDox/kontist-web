@@ -95,7 +95,7 @@ class Login extends Component {
                                 <Divider style={{margin: '20px 0'}}/>
                                 <Typography variant='subtitle1' align='center' color='textSecondary'>
                                     <Trans i18nKey={'app.loginMessage'}>
-                                        Webinterface für <a className='link' href='https://kontist.com' target='_blank'>Kontist</a>
+                                        Webinterface für <a className='link' href='https://kontist.com' target='_blank' rel="noopener noreferrer">Kontist</a>
                                     </Trans>
                                 </Typography>
                                 <div className='center'>
