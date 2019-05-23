@@ -101,7 +101,7 @@ class Overview extends Component {
         let transactions = [];
         let selectedTransaction;
         if (this.props.transactions.transactions)
-            transactions = this.props.transactions.transactions.results.map((transaction) => {
+            transactions = this.props.transactions.transactions.map((transaction) => {
 
                 let selected = false;
                 if (transaction.id === this.state.selectedTransaction) {
@@ -117,8 +117,8 @@ class Overview extends Component {
                     <TableCell>{date.format('Do MMMM YYYY')}</TableCell>
                     <TableCell>{transaction.name}</TableCell>
                     <TableCell numeric style={{
-                        color: transaction.to ? 'green' : 'red'
-                    }}>{ transaction.to ? '' : '- '}{transaction.amount / 100}€</TableCell>
+                        color: Number.parseInt(transaction.amount) > 0 ? 'green' : 'red'
+                    }}>{transaction.amount / 100}€</TableCell>
                 </TableRow>
             });
 
